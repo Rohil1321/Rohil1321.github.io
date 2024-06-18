@@ -1,12 +1,12 @@
-title: Romil V. Shah
-email: shahromil71321@gmail.com
+title: Your Name
+email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   My portfolio showcasing my projects and blog posts.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://Rohil1321.github.io" # the base hostname & protocol for your site
+url: "https://yourusername.github.io" # the base hostname & protocol for your site
 twitter_username: your_username
-github_username: Rohil1321
-theme: hyde
+github_username: your_username
+theme: minima
 
 plugins:
   - jekyll-feed
