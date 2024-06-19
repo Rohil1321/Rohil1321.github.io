@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: minima
 title: Romil V. Shah's Portfolio
 ---
 
