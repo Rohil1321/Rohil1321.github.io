@@ -6,7 +6,7 @@ baseurl: "" # If your site is at the root, use an empty string.
 url: "https://Rohil1321.github.io"
 linkedin_username: rohil13
 github_username: Rohil1321 
-theme: hyde
+theme: minima
 
 plugins:
   - jekyll-feed
