@@ -6,7 +6,7 @@ baseurl: "https://github.com/Rohil1321/CS-600-Stevens/tree/main/Project/SearchEn
 url: "https://Rohil1321.github.io" # the base hostname & protocol for your site
 twitter_username: your_username
 github_username: your_username
-theme: jekyll-theme-hyde
+theme: jekyll-theme-hydeout
 
 plugins:
   - jekyll-feed
