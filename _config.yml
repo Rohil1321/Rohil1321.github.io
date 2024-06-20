@@ -1,11 +1,12 @@
 title: Romil V. Shah
 email: shahromil71321@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
+description: >-
   My portfolio showcasing my projects and blog posts.
-baseurl: "https://github.com/Rohil1321/CS-600-Stevens/tree/main/Project/SearchEngine_CS600" # the subpath of your site, e.g. /blog
-url: "https://Rohil1321.github.io" # the base hostname & protocol for your site
-twitter_username: your_username
-github_username: your_username
-theme: minima
+baseurl: "" # If your site is at the root, use an empty string.
+url: "https://Rohil1321.github.io"
+linkedin_username: rohil13
+github_username: Rohil1321 
+theme: jekyll-theme-hyde
+
 plugins:
   - jekyll-feed
