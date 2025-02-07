@@ -2,11 +2,11 @@ title: Romil V. Shah
 email: shahromil71321@gmail.com
 description: >-
   My portfolio showcasing my projects and blog posts.
-baseurl: "" # If your site is at the root, use an empty string.
+baseurl: ""
 url: "https://Rohil1321.github.io"
 linkedin_username: rohil13
 github_username: Rohil1321 
-theme: jekyll-theme-hyde
+theme: minima
 
 plugins:
   - jekyll-feed
