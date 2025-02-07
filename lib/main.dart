@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Romil Shah',
+      title: 'Rohil Shah',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         textTheme: GoogleFonts.poppinsTextTheme().copyWith(
@@ -56,7 +56,7 @@ class PortfolioPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Romil Shah',
+                  'Rohil Shah',
                   style: Theme.of(context).textTheme.displayLarge,
                 ),
                 const SizedBox(height: 16),
