@@ -42,8 +42,8 @@ class ContactPage extends StatelessWidget {
               context,
               icon: Icons.email,
               title: 'Email',
-              subtitle: 'rshah49@stevens.edu',
-              onTap: () => _launchURL('mailto:rshah49@stevens.edu'),
+              subtitle: 'shahromil71321@gmail.com',
+              onTap: () => _launchURL('mailto:shahromil71321@gmail.com'),
             ),
             const SizedBox(height: 24),
             _buildContactCard(

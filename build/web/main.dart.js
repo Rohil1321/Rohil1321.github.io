@@ -58776,14 +58776,14 @@ case 5:return A.O(null,r)
 case 1:return A.N(p,r)}})
 return A.P($async$jl,r)},
 O(a){var s=this,r=null,q=A.ai(a).p2.a
-return A.z5(A.a71(A.pP(A.b([A.c8("Contact",q==null?r:q.dw(B.b3)),B.dj,A.c8("Let's connect! Feel free to reach out through any of these platforms:",A.ai(a).p2.y),B.hN,s.uh(a,B.zh,new A.Ml(s),"rshah49@stevens.edu","Email"),B.hM,s.uh(a,B.zi,new A.Mm(s),"linkedin.com/in/rohil13","LinkedIn"),B.hM,s.uh(a,B.zf,new A.Mn(s),"github.com/Rohil1321","GitHub")],t.E),B.al)),B.j,r,r,r,B.fx,r)},
+return A.z5(A.a71(A.pP(A.b([A.c8("Contact",q==null?r:q.dw(B.b3)),B.dj,A.c8("Let's connect! Feel free to reach out through any of these platforms:",A.ai(a).p2.y),B.hN,s.uh(a,B.zh,new A.Ml(s),"shahromil71321@gmail.com","Email"),B.hM,s.uh(a,B.zi,new A.Mm(s),"linkedin.com/in/rohil13","LinkedIn"),B.hM,s.uh(a,B.zf,new A.Mn(s),"github.com/Rohil1321","GitHub")],t.E),B.al)),B.j,r,r,r,B.fx,r)},
 uh(a,b,c,d,e){var s,r,q=null,p=A.ai(a).p2.r
 p=A.c8(e,p==null?q:p.dw(B.A))
 s=A.ai(a).p2.y
 r=t.E
 return A.a99(A.a6q(!1,!0,new A.db(B.jn,A.Cn(A.b([new A.iP(b,32,B.A,q),B.GV,A.NX(A.pP(A.b([p,B.GX,A.c8(d,s==null?q:s.dw(B.j9))],r),B.al),1),B.zp],r),B.aI,B.c_),q),q,!0,q,q,q,q,q,q,q,q,q,c,q,q,q,q,q,q,q),4)}}
 A.Ml.prototype={
-$0(){return this.a.jl("mailto:rshah49@stevens.edu")},
+$0(){return this.a.jl("mailto:shahromil71321@gmail.com")},
 $S:0}
 A.Mm.prototype={
 $0(){return this.a.jl("https://linkedin.com/in/rohil13")},
