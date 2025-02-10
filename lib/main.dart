@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Rohil Shah',
+      title: 'Romil Shah',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         textTheme: GoogleFonts.poppinsTextTheme().copyWith(
@@ -53,7 +53,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
   }
 
   void _downloadResume() async {
-    const String resumeUrl = 'https://github.com/Rohil1321/Rohil1321.github.io/raw/main/assets/Romil_Resume.pdf';
+    const String resumeUrl = 'https://github.com/Rohil1321/Rohil1321.github.io/raw/main/assets/Rohil_Resume.pdf';
     try {
       final Uri url = Uri.parse(resumeUrl);
       if (!await launcher.launchUrl(url)) {
@@ -82,7 +82,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Rohil Shah',
+                  'Romil Shah',
                   style: Theme.of(context).textTheme.displayLarge,
                 ),
                 const SizedBox(height: 16),

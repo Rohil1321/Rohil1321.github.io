@@ -58710,7 +58710,7 @@ A.Uu.prototype={
 OE(a){$.a5n().n(0,this,a)}}
 A.B8.prototype={
 O(a){var s=null,r=A.YI(B.Z,s,s,s,s).p2,q=A.dX(r.a),p=A.dX(r.b),o=A.dX(r.c),n=A.dX(r.d),m=A.dX(r.e),l=A.dX(r.f),k=A.dX(r.r),j=A.dX(r.w),i=A.dX(r.x)
-return new A.ru(B.EF,"Rohil Shah",A.YI(s,s,B.h1,A.YG(A.dX(r.y),A.dX(r.z),A.dX(r.Q),q,p,o,n,m,l,A.dX(r.as),A.dX(r.at),A.dX(r.ax),k,j,i).YT(B.Lq,B.J7),s),!1,s)}}
+return new A.ru(B.EF,"Romil Shah",A.YI(s,s,B.h1,A.YG(A.dX(r.y),A.dX(r.z),A.dX(r.Q),q,p,o,n,m,l,A.dX(r.as),A.dX(r.at),A.dX(r.ax),k,j,i).YT(B.Lq,B.J7),s),!1,s)}}
 A.t9.prototype={
 ah(){return new A.w9(B.ju)}}
 A.w9.prototype={
@@ -58718,10 +58718,10 @@ Um(a){this.aj(new A.a1T(this,a))},
 pk(){var s=0,r=A.Q(t.H),q=1,p,o=this,n,m,l,k
 var $async$pk=A.M(function(a,b){if(a===1){p=b
 s=q}while(true)switch(s){case 0:q=3
-n=A.eW("https://github.com/Rohil1321/Rohil1321.github.io/raw/main/assets/Romil_Resume.pdf",0,null)
+n=A.eW("https://github.com/Rohil1321/Rohil1321.github.io/raw/main/assets/Rohil_Resume.pdf",0,null)
 s=6
 return A.S(A.Kw(n,B.fF),$async$pk)
-case 6:if(!b){m=A.cq("Could not launch https://github.com/Rohil1321/Rohil1321.github.io/raw/main/assets/Romil_Resume.pdf")
+case 6:if(!b){m=A.cq("Could not launch https://github.com/Rohil1321/Rohil1321.github.io/raw/main/assets/Rohil_Resume.pdf")
 throw A.e(m)}q=1
 s=5
 break
@@ -58736,7 +58736,7 @@ break
 case 5:return A.O(null,r)
 case 1:return A.N(p,r)}})
 return A.P($async$pk,r)},
-O(a){var s=this,r=null,q=A.c8("Rohil Shah",A.ai(a).p2.a),p=A.ai(a).p2.r,o=t.E
+O(a){var s=this,r=null,q=A.c8("Romil Shah",A.ai(a).p2.a),p=A.ai(a).p2.r,o=t.E
 return new A.tF(A.Cn(A.b([A.z5(A.pP(A.b([q,B.di,A.c8("Software Developer",p==null?r:p.dw(B.y)),B.dj,s.ui("Home",B.ju),s.ui("Projects",B.EI),s.ui("Contact",B.xP),B.H7,A.am_(B.zm,B.LP,s.gQG())],o),B.al),B.A,r,r,r,B.yE,300),A.NX(s.d,1)],o),B.aI,B.c_),r)},
 ui(a,b){var s=null
 return new A.db(B.yz,A.abM(!1,A.c8(a,A.nM(s,s,A.r(this.d)===A.r(b)?B.j:B.y,s,s,s,s,s,s,s,s,20,s,s,s,s,s,!0,s,s,s,s,s,s,s,s)),s,s,B.dY,s,s,s,s,new A.a1S(this,b),s,s),s)}}
