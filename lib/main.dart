@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher.dart' as launcher;
+import 'pages/home_page.dart';
+import 'pages/projects_page.dart';
+import 'pages/contact_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,6 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Rohil Shah',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -32,13 +36,35 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class PortfolioPage extends StatelessWidget {
+class PortfolioPage extends StatefulWidget {
   const PortfolioPage({super.key});
 
+  @override
+  State<PortfolioPage> createState() => _PortfolioPageState();
+}
+
+class _PortfolioPageState extends State<PortfolioPage> {
+  Widget _currentPage = const HomePage();
+
+  void _navigateToPage(Widget page) {
+    setState(() {
+      _currentPage = page;
+    });
+  }
+
   void _downloadResume() async {
-    const url = 'assets/Romil_Resume.pdf';
-    if (await canLaunch(url)) {
-      await launch(url);
+    const String resumeUrl = 'https://github.com/Rohil1321/Rohil1321.github.io/raw/main/assets/Romil_Resume.pdf';
+    try {
+      final Uri url = Uri.parse(resumeUrl);
+      if (!await launcher.launchUrl(url)) {
+        throw Exception('Could not launch $resumeUrl');
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Error downloading resume')),
+        );
+      }
     }
   }
 
@@ -47,7 +73,7 @@ class PortfolioPage extends StatelessWidget {
     return Scaffold(
       body: Row(
         children: [
-          // Left sidebar (Hyde theme style)
+          // Left sidebar
           Container(
             width: 300,
             color: const Color(0xFF202020),
@@ -61,19 +87,20 @@ class PortfolioPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Portfolio',
+                  'Software Developer',
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                     color: Colors.white70,
                   ),
                 ),
                 const SizedBox(height: 32),
-                _buildNavItem(context, 'About', true),
-                _buildNavItem(context, 'Projects', false),
-                _buildNavItem(context, 'Contact', false),
+                _buildNavButton('Home', const HomePage()),
+                _buildNavButton('Projects', const ProjectsPage()),
+                _buildNavButton('Contact', const ContactPage()),
                 const Spacer(),
-                TextButton(
+                TextButton.icon(
                   onPressed: _downloadResume,
-                  child: const Text(
+                  icon: const Icon(Icons.download, color: Colors.white70),
+                  label: const Text(
                     'Download Resume',
                     style: TextStyle(color: Colors.white70),
                   ),
@@ -83,106 +110,25 @@ class PortfolioPage extends StatelessWidget {
           ),
           // Main content area
           Expanded(
-            child: Container(
-              color: Colors.white,
-              padding: const EdgeInsets.all(64),
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Welcome!',
-                      style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                        color: const Color(0xFF303030),
-                      ),
-                    ),
-                    const SizedBox(height: 32),
-                    Text(
-                      'I am a software developer passionate about creating innovative solutions.',
-                      style: Theme.of(context).textTheme.bodyLarge,
-                    ),
-                    const SizedBox(height: 48),
-                    Text(
-                      'Projects',
-                      style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                        color: const Color(0xFF303030),
-                      ),
-                    ),
-                    const SizedBox(height: 24),
-                    ProjectCard(
-                      title: 'Search Engine',
-                      description: 'A search engine project built with advanced algorithms',
-                      link: 'https://github.com/Rohil1321/CS-600-Stevens/tree/main/Project/SearchEngine_CS600',
-                    ),
-                    const SizedBox(height: 16),
-                    ProjectCard(
-                      title: 'Captain Veggie',
-                      description: 'An engaging project developed for AAI 551',
-                      link: 'https://github.com/Rohil1321/AAI_551_Project',
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            child: _currentPage,
           ),
         ],
       ),
     );
   }
 
-  Widget _buildNavItem(BuildContext context, String title, bool isActive) {
+  Widget _buildNavButton(String title, Widget page) {
+    final bool isSelected = _currentPage.runtimeType == page.runtimeType;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: TextButton(
-        onPressed: () {},
+        onPressed: () => _navigateToPage(page),
         child: Text(
           title,
           style: TextStyle(
-            color: isActive ? Colors.white : Colors.white70,
+            color: isSelected ? Colors.white : Colors.white70,
             fontSize: 20,
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class ProjectCard extends StatelessWidget {
-  final String title;
-  final String description;
-  final String link;
-
-  const ProjectCard({
-    super.key,
-    required this.title,
-    required this.description,
-    required this.link,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      elevation: 4,
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 8),
-            Text(description),
-            const SizedBox(height: 16),
-            TextButton(
-              onPressed: () => launch(link),
-              child: const Text('View Project'),
-            ),
-          ],
         ),
       ),
     );

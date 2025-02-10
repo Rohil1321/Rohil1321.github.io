@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  url_launcher: ^6.1.10
+  url_launcher: ^6.2.4
   google_fonts: ^4.0.3
   flutter_web_plugins:
     sdk: flutter
