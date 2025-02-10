@@ -23,21 +23,32 @@
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    const serviceWorkerVersion = "3855035713";
+    const serviceWorkerVersion = "702355350";
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
-</head>
-<body>
   <script>
-    window.addEventListener('load', function(ev) {
-      // Download main.dart.js
-      _flutter.loader.load({
+    window.addEventListener('load', function() {
+      // Restore the URL hash if it exists
+      var initialHash = window.location.hash;
+      
+      _flutter.loader.loadEntrypoint({
         serviceWorker: {
           serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: function(engineInitializer) {
+          engineInitializer.initializeEngine().then(function(appRunner) {
+            appRunner.runApp();
+            // Restore the URL hash after the app is loaded
+            if (initialHash) {
+              window.location.hash = initialHash;
+            }
+          });
         }
       });
     });
   </script>
+</head>
+<body>
 </body>
 </html>

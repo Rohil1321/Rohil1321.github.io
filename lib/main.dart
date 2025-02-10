@@ -31,7 +31,13 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const PortfolioPage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const PortfolioPage(),
+        '/home': (context) => const HomePage(),
+        '/projects': (context) => const ProjectsPage(),
+        '/contact': (context) => const ContactPage(),
+      },
     );
   }
 }
@@ -44,14 +50,6 @@ class PortfolioPage extends StatefulWidget {
 }
 
 class _PortfolioPageState extends State<PortfolioPage> {
-  Widget _currentPage = const HomePage();
-
-  void _navigateToPage(Widget page) {
-    setState(() {
-      _currentPage = page;
-    });
-  }
-
   void _downloadResume() async {
     const String resumeUrl = 'https://github.com/Rohil1321/Rohil1321.github.io/raw/main/assets/Romil_Resume.pdf';
     try {
@@ -93,9 +91,9 @@ class _PortfolioPageState extends State<PortfolioPage> {
                   ),
                 ),
                 const SizedBox(height: 32),
-                _buildNavButton('Home', const HomePage()),
-                _buildNavButton('Projects', const ProjectsPage()),
-                _buildNavButton('Contact', const ContactPage()),
+                _buildNavButton('Home', '/home'),
+                _buildNavButton('Projects', '/projects'),
+                _buildNavButton('Contact', '/contact'),
                 const Spacer(),
                 TextButton.icon(
                   onPressed: _downloadResume,
@@ -110,23 +108,31 @@ class _PortfolioPageState extends State<PortfolioPage> {
           ),
           // Main content area
           Expanded(
-            child: _currentPage,
+            child: Navigator(
+              initialRoute: '/',
+              onGenerateRoute: (settings) {
+                return MaterialPageRoute(builder: (context) => const HomePage());
+              },
+            ),
           ),
         ],
       ),
     );
   }
 
-  Widget _buildNavButton(String title, Widget page) {
-    final bool isSelected = _currentPage.runtimeType == page.runtimeType;
+  Widget _buildNavButton(String title, String route) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: TextButton(
-        onPressed: () => _navigateToPage(page),
+        onPressed: () => Navigator.pushNamed(context, route),
+        style: TextButton.styleFrom(
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+          backgroundColor: Colors.transparent,
+        ),
         child: Text(
           title,
-          style: TextStyle(
-            color: isSelected ? Colors.white : Colors.white70,
+          style: const TextStyle(
+            color: Colors.white70,
             fontSize: 20,
           ),
         ),
