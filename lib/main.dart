@@ -87,7 +87,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Software Developer',
+                  'IT Administrator',
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                     color: Colors.white70,
                   ),

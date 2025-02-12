@@ -20,17 +20,22 @@ class HomePage extends StatelessWidget {
             ),
             const SizedBox(height: 32),
             Text(
-              'Hi, I\'m Rohil Shah',
+              'Hi, I\'m Romil Shah',
               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                 color: const Color(0xFF303030),
               ),
             ),
             const SizedBox(height: 24),
             Text(
-              'I am a passionate software developer with a strong foundation in computer science. '
-              'Currently pursuing my Master\'s degree, I specialize in creating efficient and innovative solutions '
-              'to complex problems. My expertise includes web development, algorithms, and software engineering.',
-              style: Theme.of(context).textTheme.bodyLarge,
+              'I am an IT Administrator with a passion for technology and automation. '
+              'With expertise in Python development and system administration, I specialize in creating '
+              'efficient solutions to streamline IT operations and enhance business processes. '
+              'My strong technical background and problem-solving skills enable me to effectively '
+              'manage IT infrastructure while developing innovative automation solutions.',
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                color: const Color(0xFF515151),
+                height: 1.6,
+              ),
             ),
             const SizedBox(height: 48),
             Text(
@@ -44,14 +49,13 @@ class HomePage extends StatelessWidget {
               spacing: 8,
               runSpacing: 8,
               children: [
-                _buildSkillChip('Flutter'),
-                _buildSkillChip('Python'),
-                _buildSkillChip('Java'),
-                _buildSkillChip('JavaScript'),
-                _buildSkillChip('React'),
-                _buildSkillChip('Node.js'),
-                _buildSkillChip('SQL'),
-                _buildSkillChip('Git'),
+                _buildSkillChip('Python', isPrimary: true),
+                _buildSkillChip('System Administration'),
+                _buildSkillChip('IT Infrastructure'),
+                _buildSkillChip('Automation'),
+                _buildSkillChip('Network Management'),
+                _buildSkillChip('Problem Solving'),
+                _buildSkillChip('Technical Support'),
               ],
             ),
           ],
@@ -60,11 +64,15 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildSkillChip(String skill) {
+  Widget _buildSkillChip(String label, {bool isPrimary = false}) {
     return Chip(
-      label: Text(skill),
-      backgroundColor: const Color(0xFF202020).withOpacity(0.1),
-      labelStyle: const TextStyle(color: Color(0xFF202020)),
+      label: Text(
+        label,
+        style: TextStyle(
+          color: isPrimary ? Colors.white : Colors.black87,
+        ),
+      ),
+      backgroundColor: isPrimary ? Colors.red : Colors.grey[200],
     );
   }
 }

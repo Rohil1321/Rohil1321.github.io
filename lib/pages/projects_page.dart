@@ -22,23 +22,36 @@ class ProjectsPage extends StatelessWidget {
             const SizedBox(height: 32),
             Text(
               'Here are some of my notable projects:',
-              style: Theme.of(context).textTheme.bodyLarge,
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                color: const Color(0xFF515151),
+              ),
             ),
             const SizedBox(height: 48),
             ProjectCard(
-              title: 'Search Engine',
-              description: 'A sophisticated search engine project built with advanced algorithms. '
-                  'Implements efficient indexing and ranking mechanisms for improved search results.',
-              technologies: ['Python', 'Data Structures', 'Algorithms'],
+              title: 'IT Infrastructure Automation',
+              description: 'Developed comprehensive Python scripts to automate routine IT tasks '
+                  'and system maintenance. Implemented monitoring solutions and automated reporting '
+                  'systems to improve operational efficiency.',
+              technologies: ['Python', 'Automation', 'System Administration'],
               link: 'https://github.com/Rohil1321/CS-600-Stevens/tree/main/Project/SearchEngine_CS600',
             ),
             const SizedBox(height: 32),
             ProjectCard(
-              title: 'Captain Veggie',
-              description: 'An engaging project developed for AAI 551. '
-                  'Features interactive gameplay and demonstrates object-oriented programming principles.',
-              technologies: ['Java', 'OOP', 'Game Development'],
+              title: 'Network Management System',
+              description: 'Created a centralized network management solution using Python '
+                  'to monitor and manage network devices. Implemented automated alerts and '
+                  'reporting features for proactive issue resolution.',
+              technologies: ['Python', 'Networking', 'System Monitoring'],
               link: 'https://github.com/Rohil1321/AAI_551_Project',
+            ),
+            const SizedBox(height: 32),
+            ProjectCard(
+              title: 'IT Asset Management Tool',
+              description: 'Developed a custom IT asset management system to track and '
+                  'maintain hardware and software inventory. Automated asset lifecycle '
+                  'management and reporting processes.',
+              technologies: ['Python', 'Database Management', 'Asset Tracking'],
+              link: '#',
             ),
           ],
         ),
@@ -54,72 +67,76 @@ class ProjectCard extends StatelessWidget {
   final String link;
 
   const ProjectCard({
-    super.key,
     required this.title,
     required this.description,
     required this.technologies,
     required this.link,
+    super.key,
   });
-
-  Future<void> _launchURL() async {
-    final Uri url = Uri.parse(link);
-    try {
-      if (await launcher.canLaunchUrl(url)) {
-        await launcher.launchUrl(url, mode: launcher.LaunchMode.platformDefault);
-      } else {
-        throw 'Could not launch $link';
-      }
-    } catch (e) {
-      debugPrint('Error launching URL: $e');
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 4,
-      child: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                color: const Color(0xFF303030),
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(24),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(color: Colors.grey[300]!),
+        borderRadius: BorderRadius.circular(8),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey[200]!,
+            blurRadius: 4,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+              color: const Color(0xFF303030),
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 16),
+          Text(
+            description,
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+              color: const Color(0xFF515151),
+              height: 1.5,
+            ),
+          ),
+          const SizedBox(height: 16),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: technologies.map((tech) => Chip(
+              label: Text(
+                tech,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 12,
+                ),
               ),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              description,
-              style: Theme.of(context).textTheme.bodyLarge,
-            ),
-            const SizedBox(height: 16),
-            Wrap(
-              spacing: 8,
-              runSpacing: 8,
-              children: technologies
-                  .map((tech) => Chip(
-                        label: Text(tech),
-                        backgroundColor: const Color(0xFF202020).withOpacity(0.1),
-                        labelStyle: const TextStyle(color: Color(0xFF202020)),
-                      ))
-                  .toList(),
-            ),
+              backgroundColor: Colors.red,
+            )).toList(),
+          ),
+          if (link != '#') ...[
             const SizedBox(height: 16),
             TextButton(
-              onPressed: _launchURL,
-              child: const Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text('View Project'),
-                  SizedBox(width: 8),
-                  Icon(Icons.open_in_new),
-                ],
-              ),
+              onPressed: () async {
+                final Uri url = Uri.parse(link);
+                if (!await launcher.launchUrl(url)) {
+                  throw Exception('Could not launch $url');
+                }
+              },
+              child: const Text('View Project'),
             ),
           ],
-        ),
+        ],
       ),
     );
   }
