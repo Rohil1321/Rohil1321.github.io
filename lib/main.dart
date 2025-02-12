@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Romil Shah',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
         textTheme: GoogleFonts.poppinsTextTheme().copyWith(
           displayLarge: const TextStyle(
             fontSize: 48,
@@ -27,17 +27,11 @@ class MyApp extends StatelessWidget {
           ),
           bodyLarge: const TextStyle(
             fontSize: 18,
-            color: Color(0xFF515151),
+            color: Colors.white70,
           ),
         ),
       ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const PortfolioPage(),
-        '/home': (context) => const HomePage(),
-        '/projects': (context) => const ProjectsPage(),
-        '/contact': (context) => const ContactPage(),
-      },
+      home: const PortfolioPage(),
     );
   }
 }
@@ -50,17 +44,25 @@ class PortfolioPage extends StatefulWidget {
 }
 
 class _PortfolioPageState extends State<PortfolioPage> {
+  int _selectedIndex = 0;
+  
+  final List<Widget> _pages = [
+    const HomePage(),
+    const ProjectsPage(),
+    const ContactPage(),
+  ];
+
   void _downloadResume() async {
-    const String resumeUrl = 'https://github.com/Rohil1321/Rohil1321.github.io/raw/main/assets/Romil_Resume.pdf';
+    const String resumeUrl = 'https://rohil1321.github.io/assets/Romil_Shah_Resume.pdf';
     try {
       final Uri url = Uri.parse(resumeUrl);
-      if (!await launcher.launchUrl(url)) {
+      if (!await launcher.launchUrl(url, mode: launcher.LaunchMode.platformDefault)) {
         throw Exception('Could not launch $resumeUrl');
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Error downloading resume')),
+          const SnackBar(content: Text('Error downloading resume. Please try again.')),
         );
       }
     }
@@ -71,7 +73,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
     return Scaffold(
       body: Row(
         children: [
-          // Left sidebar
+          // Left sidebar (Hyde theme style)
           Container(
             width: 300,
             color: const Color(0xFF202020),
@@ -90,10 +92,10 @@ class _PortfolioPageState extends State<PortfolioPage> {
                     color: Colors.white70,
                   ),
                 ),
-                const SizedBox(height: 32),
-                _buildNavButton('Home', '/home'),
-                _buildNavButton('Projects', '/projects'),
-                _buildNavButton('Contact', '/contact'),
+                const SizedBox(height: 48),
+                _buildNavButton('Home', 0),
+                _buildNavButton('Projects', 1),
+                _buildNavButton('Contact', 2),
                 const Spacer(),
                 TextButton.icon(
                   onPressed: _downloadResume,
@@ -108,11 +110,9 @@ class _PortfolioPageState extends State<PortfolioPage> {
           ),
           // Main content area
           Expanded(
-            child: Navigator(
-              initialRoute: '/',
-              onGenerateRoute: (settings) {
-                return MaterialPageRoute(builder: (context) => const HomePage());
-              },
+            child: Container(
+              color: Colors.white,
+              child: _pages[_selectedIndex],
             ),
           ),
         ],
@@ -120,21 +120,26 @@ class _PortfolioPageState extends State<PortfolioPage> {
     );
   }
 
-  Widget _buildNavButton(String title, String route) {
+  Widget _buildNavButton(String title, int index) {
+    final bool isSelected = _selectedIndex == index;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: TextButton(
-        onPressed: () => Navigator.pushNamed(context, route),
+        onPressed: () => setState(() => _selectedIndex = index),
         style: TextButton.styleFrom(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-          backgroundColor: Colors.transparent,
+          backgroundColor: isSelected ? Colors.red.withOpacity(0.2) : Colors.transparent,
         ),
-        child: Text(
-          title,
-          style: const TextStyle(
-            color: Colors.white70,
-            fontSize: 20,
-          ),
+        child: Row(
+          children: [
+            Text(
+              title,
+              style: TextStyle(
+                color: isSelected ? Colors.red : Colors.white70,
+                fontSize: 20,
+              ),
+            ),
+          ],
         ),
       ),
     );
