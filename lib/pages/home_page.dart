@@ -28,33 +28,22 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 24),
             Text(
               'IT Administrator at Dianco Inc, New York City, NY',
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                 color: const Color(0xFF303030),
                 fontWeight: FontWeight.w500,
               ),
             ),
-            const SizedBox(height: 16),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildNumberedPoint(
-                  context,
-                  '1',
-                  'Maintained the company\'s website, ensuring 99.9% uptime for a high-traffic platform showcasing diamond jewelry inventory, directly contributing to customer engagement and sales opportunities for the business.',
-                ),
-                const SizedBox(height: 12),
-                _buildNumberedPoint(
-                  context,
-                  '2',
-                  'Implemented a Python-based automated inventory tracking system, streamlining the process of updating the website with current diamond jewelry availability, reducing manual data entry errors by 95% and saving 10 hours of staff time weekly.',
-                ),
-                const SizedBox(height: 12),
-                _buildNumberedPoint(
-                  context,
-                  '3',
-                  'Provided rapid response IT support, diagnosing and resolving hardware and software issues within an average of 2 hours, minimizing downtime and maintaining a 98% operational efficiency for all office computers and network infrastructure.',
-                ),
-              ],
+            const SizedBox(height: 24),
+            Text(
+              'I am an IT Administrator with a passion for technology and automation. '
+              'With expertise in Python development and system administration, I specialize in creating '
+              'efficient solutions to streamline IT operations and enhance business processes. '
+              'My strong technical background and problem-solving skills enable me to effectively '
+              'manage IT infrastructure while developing innovative automation solutions.',
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                color: const Color(0xFF303030),
+                height: 1.6,
+              ),
             ),
             const SizedBox(height: 48),
             Text(
@@ -81,40 +70,6 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  Widget _buildNumberedPoint(BuildContext context, String number, String text) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          width: 24,
-          height: 24,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            color: Colors.red,
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Text(
-            number,
-            style: const TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-        const SizedBox(width: 12),
-        Expanded(
-          child: Text(
-            text,
-            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-              color: const Color(0xFF303030),
-              height: 1.6,
-            ),
-          ),
-        ),
-      ],
     );
   }
 
