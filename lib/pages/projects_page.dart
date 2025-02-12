@@ -35,7 +35,7 @@ class ProjectsPage extends StatelessWidget {
                 'Created ranking algorithms based on word occurrence frequency and implemented multi-keyword search capabilities, using merge sort for efficient result ranking and displaying search results with relevant scores.',
               ],
               technologies: ['Java', 'Data Structures', 'Web Scraping'],
-              link: 'https://github.com/Rohil1321/CS-600-Stevens/tree/main/Project/SearchEngine_CS600',
+              link: 'https://github.com/Romil2112/CS-600-Stevens/tree/main/Project/SearchEngine_CS600',
             ),
             const SizedBox(height: 32),
             ProjectCard(
@@ -46,7 +46,7 @@ class ProjectsPage extends StatelessWidget {
                 'Implemented game mechanics including random vegetable placement, rabbit movement algorithms, score tracking, and a high score system, demonstrating skills in algorithm design and data structure manipulation.',
               ],
               technologies: ['Python', 'OOP', 'Game Development'],
-              link: 'https://github.com/Rohil1321/AAI_551_Project',
+              link: 'https://github.com/Romil2112/AAI_551_Project',
             ),
           ],
         ),
