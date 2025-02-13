@@ -48,6 +48,24 @@ class ProjectsPage extends StatelessWidget {
               technologies: ['Python', 'OOP', 'Game Development'],
               link: 'https://github.com/Romil2112/AAI_551_Project',
             ),
+            const SizedBox(height: 32),
+            ProjectCard(
+              title: 'Kashie Banks',
+              descriptions: [
+                'Kashie Banks is a web application designed for managing financial transactions and banking services. It provides users with a seamless experience for tracking their expenses and incomes, along with features for creating budgets and financial reports.',
+              ],
+              technologies: ['JavaScript', 'React', 'Node.js', 'Express', 'MongoDB'],
+              link: 'https://github.com/Romil2112/Kashie-Banks-TSF',
+            ),
+            const SizedBox(height: 32),
+            ProjectCard(
+              title: 'Kashie Banks',
+              descriptions: [
+                'Kashie Banks is a web application designed for managing financial transactions and banking services. It provides users with a seamless experience for tracking their expenses and incomes, along with features for creating budgets and financial reports.',
+              ],
+              technologies: ['JavaScript', 'React', 'Node.js', 'Express', 'MongoDB'],
+              link: 'https://github.com/Romil2112/Kashie-Banks-TSF',
+            ),
           ],
         ),
       ),
